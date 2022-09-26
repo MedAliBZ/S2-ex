@@ -21,7 +21,7 @@ app.get('/game',(req, res) => {
 app.get("/game/select/:year", (req,res)=>{
     let year = req.params.year;
     
-    fs.readFile("./SteamGammes.json",(err,data)=>{
+    fs.readFile("./SteamGames.json",(err,data)=>{
         if(!err){
             let filtredGames = JSON.parse(data).filter((e)=> e.Year > year);
             res.status(200).json(filtredGames);
